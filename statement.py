@@ -337,8 +337,12 @@ class Reconciliation(metaclass=PoolMeta):
                         if bank_line.bank_statement_line:
                             raise UserError(gettext(
                                 'account_bank_statement_counterpart.reconciliation_cannot_delete',
+                                    reconciliation_id=reconciliation.id,
                                     reconciliation=reconciliation.rec_name,
+                                    line_id=bank_line.id,
                                     line=bank_line.rec_name,
+                                    statement_line_id=(
+                                        bank_line.bank_statement_line.id),
                                     statement_line=(
                                         bank_line.bank_statement_line.rec_name)
                                     ))
